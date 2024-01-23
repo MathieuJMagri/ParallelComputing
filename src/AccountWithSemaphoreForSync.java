@@ -8,7 +8,7 @@ public class AccountWithSemaphoreForSync {
   public static void main(String[] args) {
     ExecutorService executor = Executors.newCachedThreadPool();
 
-    // Create and launch 100 threads
+    // Create and launch 100 threadsAALO
     for (int i = 0; i < 100; i++) {
       executor.execute(new AddAPennyTask());
     }
