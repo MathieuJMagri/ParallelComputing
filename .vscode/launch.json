@@ -1,0 +1,70 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ParallelMax",
+            "request": "launch",
+            "mainClass": "ParallelMax",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "ParallelMergeSort",
+            "request": "launch",
+            "mainClass": "ParallelMergeSort",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "ConsumerProducerUsingBlockingQueue",
+            "request": "launch",
+            "mainClass": "ConsumerProducerUsingBlockingQueue",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "ConsumerProducer",
+            "request": "launch",
+            "mainClass": "ConsumerProducer",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "AccountWithSemaphoreForSync",
+            "request": "launch",
+            "mainClass": "AccountWithSemaphoreForSync",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AccountWithSemaphoreForSync",
+            "request": "launch",
+            "mainClass": "AccountWithSemaphoreForSync",
+            "projectName": "Assignment1_ECSE420_4c9b387"
+        },
+        {
+            "type": "java",
+            "name": "TaskThreadDemo",
+            "request": "launch",
+            "mainClass": "TaskThreadDemo",
+            "projectName": "Assignment1_ECSE420_4c9b387"
+        },
+        {
+            "type": "java",
+            "name": "Test1",
+            "request": "launch",
+            "mainClass": "Test1",
+            "projectName": "Assignment1_ECSE420_4c9b387"
+        }
+    ]
+}
