@@ -13,8 +13,14 @@ public class MatrixMultiplication {
 		// Generate two random matrices, same size
 		double[][] a = generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE);
 		double[][] b = generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE);
+		long startTime = System.currentTimeMillis();
 		sequentialMultiplyMatrix(a, b);
-		parallelMultiplyMatrix(a, b);	
+		long endTime = System.currentTimeMillis();
+		System.out.println("sequentialMultiplyMatrix run time: " + (endTime - startTime) + " ms");
+		//startTime = System.currentTimeMillis();
+		//parallelMultiplyMatrix(a, b);	
+		//endTime = System.currentTimeMillis();
+		//System.out.println("parallelMultiplyMatrix run time: " + (endTime - startTime) + " ms");
 	}
 	
 	/**
@@ -25,7 +31,19 @@ public class MatrixMultiplication {
 	 * @return the result of the multiplication
 	 * */
 	public static double[][] sequentialMultiplyMatrix(double[][] a, double[][] b) {
-		double[][] resultMatrix = new double[0][0];
+		//matrix a and matrix b
+		//matrix multiplication:
+		double[][] resultMatrix = new double[MATRIX_SIZE][MATRIX_SIZE];
+		for (var i =0; i< a.length; i++){
+			for (var j =0 ; j< MATRIX_SIZE; j++){
+				for (var y = 0 ; y < MATRIX_SIZE ; y++){
+						resultMatrix[i][y] = 0;
+					for (var x = 0 ; x < b.length ; x++){
+						resultMatrix[i][y] += a[i][j] * b[x][y];
+					}
+				}
+			}
+		}
 		return resultMatrix;
 	}
 	
@@ -37,7 +55,8 @@ public class MatrixMultiplication {
 	 * @return the result of the multiplication
 	 * */
         public static double[][] parallelMultiplyMatrix(double[][] a, double[][] b) {
-			double[][] resultMatrix = new double[0][0];
+			double[][] resultMatrix = new double[MATRIX_SIZE][MATRIX_SIZE];
+			
 			return resultMatrix;
 		
 	}
