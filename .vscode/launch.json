@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DeadlockProgram",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.DeadlockProgram",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "MatrixMultiplication",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a1.MatrixMultiplication",
