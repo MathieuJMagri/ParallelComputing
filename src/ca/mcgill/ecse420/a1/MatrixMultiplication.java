@@ -8,7 +8,7 @@ import java.util.concurrent.RecursiveAction;
 public class MatrixMultiplication {
 	
 	private static final int NUMBER_THREADS = 1;
-	private static final int MATRIX_SIZE = 2000;
+	private static final int MATRIX_SIZE = 2000; //reduce the value here below 5 to test the matrix mult. algorithm
 
         public static void main(String[] args) {
 		
@@ -16,13 +16,25 @@ public class MatrixMultiplication {
 		double[][] a = generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE);
 		double[][] b = generateRandomMatrix(MATRIX_SIZE, MATRIX_SIZE);
 		long startTime = System.currentTimeMillis();
-		sequentialMultiplyMatrix(a, b);
+		double[][] seqMatrix = sequentialMultiplyMatrix(a, b);
 		long endTime = System.currentTimeMillis();
 		System.out.println("sequentialMultiplyMatrix run time: " + (endTime - startTime) + " ms");
 		startTime = System.currentTimeMillis();
-		parallelMultiplyMatrix(a, b);	
+		double[][] parMatrix = parallelMultiplyMatrix(a, b);	
 		endTime = System.currentTimeMillis();
 		System.out.println("parallelMultiplyMatrix run time: " + (endTime - startTime) + " ms");
+		
+		if (MATRIX_SIZE<5){
+			//print the small matrixes for testing
+			System.out.println("Matrix A");
+			printMatrixTest(a);
+			System.out.println("Matrix B");
+			printMatrixTest(b);
+			System.out.println("Sequential");
+			printMatrixTest(seqMatrix);
+			System.out.println("Parallel");
+			printMatrixTest(parMatrix);
+		}
 	}
 	
 	/**
@@ -36,19 +48,34 @@ public class MatrixMultiplication {
 		//matrix a and matrix b
 		//matrix multiplication:
 		double[][] resultMatrix = new double[MATRIX_SIZE][MATRIX_SIZE];
-		for (var i =0; i< a.length; i++){
-			for (var j =0 ; j< MATRIX_SIZE; j++){
-				for (var y = 0 ; y < MATRIX_SIZE ; y++){
-						resultMatrix[i][y] = 0;
-					for (var x = 0 ; x < b.length ; x++){
-						resultMatrix[i][y] += a[i][j] * b[x][y];
-					}
+		for (int i = 0; i < MATRIX_SIZE; i++) {
+			for (int j = 0; j < MATRIX_SIZE; j++) {
+				resultMatrix[i][j] = 0; // Initialize the cell to 0 before summing.
+				for (int k = 0; k < MATRIX_SIZE; k++) {
+					resultMatrix[i][j] += a[i][k] * b[k][j];
 				}
 			}
 		}
 		return resultMatrix;
 	}
 	
+	/**
+	 * The printMatrixTest takes an input matrix and prints it on the terminal
+	 * @param matrixToPrint is the matrix to print
+	 * */
+	public static void printMatrixTest(double[][] matrixToPrint){
+		for (int i = 0 ; i < MATRIX_SIZE ; i++){
+			String curr_line = "";
+			for(int j = 0 ; j < MATRIX_SIZE ; j++){
+				curr_line = curr_line + (int)matrixToPrint[i][j];
+				if (j == MATRIX_SIZE-1){
+					System.out.println(curr_line);
+				}
+				curr_line = curr_line + " ";
+			}
+		}
+	}
+
 	/**
 	 * Returns the result of a concurrent matrix multiplication
 	 * The two matrices are randomly generated
