@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiningPhilosophersNoDeadlock",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.DiningPhilosophersNoDeadlock",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "DiningPhilosophersNoDS",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.DiningPhilosophersNoDS",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "DiningPhilosophers",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.DiningPhilosophers",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "DeadlockProgram",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a1.DeadlockProgram",
