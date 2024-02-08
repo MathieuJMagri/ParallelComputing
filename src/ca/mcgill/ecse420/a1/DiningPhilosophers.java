@@ -23,7 +23,7 @@ public class DiningPhilosophers {
     // start thread
     for (int i = 0; i < philosophers.length; i++) {
 
-      // Uncomment below for deadlock to fix the deadlock situation
+      // Uncomment below to fix the deadlock situation
       // if(i == 0) {
       // philosophers[i] = new Philosopher(chopsticks[i%(numberOfPhilosophers)],
       // chopsticks[(i+1)%numberOfPhilosophers], i, 0);

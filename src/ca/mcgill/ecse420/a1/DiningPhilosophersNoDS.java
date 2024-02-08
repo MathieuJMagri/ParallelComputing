@@ -1,5 +1,6 @@
 package ca.mcgill.ecse420.a1;
 
+import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantLock;
@@ -55,6 +56,8 @@ public class DiningPhilosophersNoDS {
     // The number of times a philosopher gets to eat
     private int numberOfMeals;
 
+    private Random random = new Random();
+
     public Philosopher(Chopstick ChopstickRight, Chopstick ChopstickLeft, int id,
         int numberOfMeals) {
       this.ChopstickLeft = ChopstickLeft;
@@ -100,7 +103,7 @@ public class DiningPhilosophersNoDS {
         // The below code is useful for slowing down each threads execution if that is
         // needed.
         // try {
-        // Thread.sleep(200);
+        // Thread.sleep(random.nextInt(300));
         // } catch (InterruptedException e) {
         // e.printStackTrace();
         // }
