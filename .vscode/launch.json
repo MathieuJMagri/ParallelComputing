@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FilterLock",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.FilterLock",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "DiningPhilosophersNoDeadlock",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a1.DiningPhilosophersNoDeadlock",
