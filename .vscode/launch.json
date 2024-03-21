@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LamportBakery",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a1.LamportBakery",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "LockTest",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a1.LockTest",
