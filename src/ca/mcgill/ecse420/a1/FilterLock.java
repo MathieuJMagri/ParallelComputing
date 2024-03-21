@@ -39,8 +39,7 @@ public class FilterLock implements Lock {
 
     @Override
     public void lock() {
-        // int i = ConcurrencyUtils.getCurrentThreadId();
-        long i = Thread.currentThread().threadId() % n;
+        long i = Thread.currentThread().getId() % n;
         for (int L = 1; L < n; L++) { // go through each level ( 1 to n - 1 )
             level[(int) i] = L; // announce intention to enter level L
             victim[L] = i; // thread sets itself as the victim at that level L
@@ -58,7 +57,7 @@ public class FilterLock implements Lock {
 
     @Override
     public void unlock() {
-        long i = Thread.currentThread().threadId() % n;
+        long i = Thread.currentThread().getId() % n;
         level[(int) i] = 0;
     }
 
