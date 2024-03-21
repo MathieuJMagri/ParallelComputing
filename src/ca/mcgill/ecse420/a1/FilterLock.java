@@ -5,19 +5,20 @@ import java.util.concurrent.atomic.*;
 import java.util.concurrent.locks.*;
 
 public class FilterLock implements Lock {
-    private static long[] level; // level[i] for thread i
-    private static long[] victim; // victim[L] for level L
-    private static int numThreads = 5; //
+    private volatile long[] level; // level[i] for thread i
+    private volatile long[] victim; // victim[L] for level L
+    private static int n; //
 
     public static void main(String args[]) {
-        // call some stuff
+        // Test of lock and unlock:
         System.out.println("Starting the lock");
-        FilterLock filter = new FilterLock(numThreads);
+        FilterLock filter = new FilterLock(3);
         filter.lock();
         filter.unlock();
         System.out.println("done");
 
-        // TEST HERE
+        // QUESTION 1.5 TEST HERE:
+        int numThreads = 5;
         FilterLock filterLock = new FilterLock(numThreads);
         testLock(filterLock, numThreads);
     }
@@ -28,6 +29,7 @@ public class FilterLock implements Lock {
      * @param int n = size of level and victim lists
      */
     public FilterLock(int n) {
+        this.n = n;
         level = new long[n];
         victim = new long[n];
         for (int i = 1; i < n; i++) {
@@ -38,16 +40,17 @@ public class FilterLock implements Lock {
     @Override
     public void lock() {
         // int i = ConcurrencyUtils.getCurrentThreadId();
-        long i = Thread.currentThread().threadId();
-        for (int L = 1; L < numThreads; L++) { // go through each level ( 1 to n - 1 )
+        long i = Thread.currentThread().threadId() % n;
+        for (int L = 1; L < n; L++) { // go through each level ( 1 to n - 1 )
             level[(int) i] = L; // announce intention to enter level L
             victim[L] = i; // thread sets itself as the victim at that level L
             /*
              * busy wait until there is no other thread in the same or higher level AND current
              * thread is the victim
              */
-            for (int k = 0; k < numThreads; k++) {
+            for (int k = 0; k < n; k++) {
                 while ((k != i) && (level[k] >= L && victim[L] == i)) {
+                    // System.out.println("");
                 } ;
             }
         }
@@ -55,7 +58,7 @@ public class FilterLock implements Lock {
 
     @Override
     public void unlock() {
-        long i = Thread.currentThread().threadId();
+        long i = Thread.currentThread().threadId() % n;
         level[(int) i] = 0;
     }
 
@@ -101,7 +104,6 @@ public class FilterLock implements Lock {
             });
             threads[i].start();
         }
-
         for (Thread thread : threads) {
             try {
                 thread.join();
@@ -109,7 +111,6 @@ public class FilterLock implements Lock {
                 e.printStackTrace();
             }
         }
-
         if (counter.get() == numThreads) {
             System.out.println("Test passed, counter is " + counter.get());
         } else {
