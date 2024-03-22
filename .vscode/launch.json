@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FilterLock",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a2.FilterLock",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "LamportBakery",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a2.LamportBakery",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "LamportBakery",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a1.LamportBakery",
