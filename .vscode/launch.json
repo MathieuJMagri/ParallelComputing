@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HandOverHand",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a3.HandOverHand",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
+            "name": "handOverHand",
+            "request": "launch",
+            "mainClass": "ca.mcgill.ecse420.a3.handOverHand",
+            "projectName": "DiTomasso_261049988_Magri_260928498_Assignment1_121f469e"
+        },
+        {
+            "type": "java",
             "name": "FilterLock",
             "request": "launch",
             "mainClass": "ca.mcgill.ecse420.a2.FilterLock",
