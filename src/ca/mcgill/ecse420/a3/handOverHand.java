@@ -88,6 +88,7 @@ public class HandOverHand<T> {
             }
             return curr != null && curr.key == key && !curr.marked;
         } finally {
+            //release the locks after value is returned
             if (pred != null && pred != head) {
                 pred.unlock();
             }
